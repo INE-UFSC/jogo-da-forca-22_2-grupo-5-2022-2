@@ -1,5 +1,12 @@
+import os
+
+
 def clear_screen():
-    pass
+    """Executa o comando para limpar a tela"""
+    if os.name == 'posix':
+        os.system('clear')
+    else:
+        os.system('cls')
 
 
 def draw(word, guesses):
