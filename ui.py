@@ -48,7 +48,11 @@ def draw(word, correct_guesses, wrong_guesses) -> int:
 
 
 def ask_for_char(guesses) -> str:
-    pass
+        while True:
+        ask_letter = input('ESCOLHA UMA LETRA:').upper()
+        if len(ask_letter) == 1 and ask_letter.alpha
+            return ask_letter
+        else: print('CARÁCTER(ES) NÃO VALIDO')
 
 
 def ask_to_play_again() -> bool:
