@@ -22,7 +22,7 @@ def clear_screen():
 
 
 def draw(word, correct_guesses, wrong_guesses) -> int:
-    '''Retorna a quantidade de letras que o jogador ainda precisa acertar'''
+    '''Desenha a forca na tela e retorna a quantidade de letras que o jogador ainda precisa acertar'''
     clear_screen()
     current_screen = SCREEN_TEMPLATE
 
