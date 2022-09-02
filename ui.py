@@ -50,7 +50,7 @@ def draw(word, correct_guesses, wrong_guesses) -> int:
 def ask_for_char(guesses) -> str:
         while True:
         ask_letter = input('ESCOLHA UMA LETRA:').upper()
-        if len(ask_letter) == 1 and ask_letter.alpha
+        if len(ask_letter) == 1 and ask_letter.isalpha:
             return ask_letter
         else: print('CARÁCTER(ES) NÃO VALIDO')
 
