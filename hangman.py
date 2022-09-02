@@ -1,5 +1,4 @@
 from dictionary import Dictionary
-import unidecode
 import ui
 
 
