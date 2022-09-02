@@ -3,6 +3,7 @@ import os
 import requests
 import jsonpickle
 from bs4 import BeautifulSoup
+from random import Random
 
 WORD_LIST_PATH = 'word_list.json'
 
@@ -17,13 +18,18 @@ class Dictionary:
             # Baixar da Internet
             self.download_word_list()
 
+        self.word_list = list(self.word_list)
+
         # Fechar o jogo caso não existam palavras
         if len(self.word_list) == 0:
             print('Não foi possível obter a lista de palavras')
             exit()
 
     def get_random_word(self) -> str:
-        pass
+        '''Retorna uma palavra escolhida aleatoriamente da lista'''
+        rand = Random()
+        i = rand.randint(0, len(self.word_list)-1)
+        return self.word_list[i]
 
     def download_word_list(self):
         '''Baixa um conjunto de palavras da Internet e salva como um JSON'''
