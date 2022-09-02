@@ -18,4 +18,11 @@ def ask_for_char(guesses) -> str:
 
 
 def ask_to_play_again() -> bool:
-    pass
+    while True:
+        print("Deseja jogar novamente? (s/n)")
+        r = input().casefold()
+        
+        if r == "s":
+            return True
+        elif r == "n":
+            return False
