@@ -5,12 +5,12 @@ SCREEN_TEMPLATE = '''
   _____
   |   |    ERROS
   |   1    <misses>
-  |  243 
-  |  5 6 
-  |        <word>
+  |  425 
+  |   3  
+  |  6 7   <word>
 __|______
 '''
-BODY_PARTS = ['0', '/', '\\', '|', '/', '\\']
+BODY_PARTS = ['0', '|', '|', '/', '\\', '/', '\\']
 
 
 def clear_screen():
@@ -27,7 +27,7 @@ def draw(word, correct_guesses, wrong_guesses) -> int:
     current_screen = SCREEN_TEMPLATE
 
     # Adicionar partes do corpo correspondente ao erro
-    for miss in range(1, 7):
+    for miss in range(1, 8):
         current_screen = current_screen.replace(str(miss), BODY_PARTS[miss - 1] if len(wrong_guesses) >= miss else ' ')
     # Adicionar texto de erros
     misses_text = wrong_guesses.ljust(7, '_')
@@ -48,12 +48,12 @@ def draw(word, correct_guesses, wrong_guesses) -> int:
 
 
 def ask_for_char(guesses) -> str:
-        while True:
-            ask_letter = input('ESCOLHA UMA LETRA:').upper()
-            if len(ask_letter) == 1 and ask_letter.isalpha:
-                return ask_letter
-            else: 
-                print('CARÁCTER(ES) NÃO VALIDO')
+    while True:
+        ask_letter = input('ESCOLHA UMA LETRA:').upper()
+        if len(ask_letter) == 1 and ask_letter.isalpha:
+            return ask_letter
+        else:
+            print('CARÁCTER(ES) NÃO VALIDO')
 
 
 def ask_to_play_again() -> bool:

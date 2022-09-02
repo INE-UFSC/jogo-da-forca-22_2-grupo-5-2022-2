@@ -35,4 +35,3 @@ class Hangman:
             play = ui.ask_to_play_again()
             if not play:
                 break
-            
