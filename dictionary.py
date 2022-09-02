@@ -18,8 +18,6 @@ class Dictionary:
             # Baixar da Internet
             self.download_word_list()
 
-        self.word_list = list(self.word_list)
-
         # Fechar o jogo caso não existam palavras
         if len(self.word_list) == 0:
             print('Não foi possível obter a lista de palavras')
@@ -28,12 +26,12 @@ class Dictionary:
     def get_random_word(self) -> str:
         '''Retorna uma palavra escolhida aleatoriamente da lista'''
         rand = Random()
-        i = rand.randint(0, len(self.word_list)-1)
+        i = rand.randint(0, len(self.word_list) - 1)
         return self.word_list[i]
 
     def download_word_list(self):
-        '''Baixa um conjunto de palavras da Internet e salva como um JSON'''
-        self.word_list = set()
+        '''Baixa uma lista de palavras da Internet e salva como um JSON'''
+        self.word_list = list()
 
         # Obter o conjunto de palavras da Internet
         try:
@@ -42,7 +40,8 @@ class Dictionary:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 for word_list_element in soup.find_all('p', class_='words-list--links'):
                     for word_element in word_list_element.find_all('a'):
-                        self.word_list.add(word_element.get_text())
+                        if word_element.get_text() not in self.word_list:
+                            self.word_list.append(word_element.get_text())
 
                 # Salvar como JSON
                 json_data = jsonpickle.encode(self.word_list)
