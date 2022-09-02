@@ -37,7 +37,7 @@ def draw(word, correct_guesses, wrong_guesses) -> int:
     filtered_word = unidecode.unidecode(word)
     word_text = word
     for i, char in enumerate(filtered_word):
-        if char not in correct_guesses:
+        if char.isalpha() and char not in correct_guesses:
             word_text = word_text[:i] + '_' + word_text[i + 1:]
     current_screen = current_screen.replace('<word>', '  '.join(word_text))
 
