@@ -9,28 +9,26 @@ class Hangman:
 
     def run(self):
         while True:
-            self.word = self.dictionary.get_random_word().upper()
-            self.correct_guesses = ''
-            self.wrong_guesses = ''
+            word = self.dictionary.get_random_word().upper()
+            correct_guesses = ''
+            wrong_guesses = ''
 
             while True:
                 # Desenho e determina a vitória
-                if ui.draw(self.word, self.correct_guesses, self.wrong_guesses) == 0:
+                if ui.draw(word, correct_guesses, wrong_guesses) == 0:
                     print("Você Venceu!")
                     break
-                print(self.word)
 
                 # Verifica se a letra está correta
-                guess = ui.ask_for_char(self.correct_guesses)
-                for i,letra in enumerate(self.word):
-                    if guess == unidecode.unidecode(letra):
-                        self.correct_guesses = self.correct_guesses + guess
-                        break
-                    if i == len(self.word)-1:
-                        self.wrong_guesses = self.wrong_guesses + guess
+                guess = ui.ask_for_char(correct_guesses + wrong_guesses)
+                if guess in word:
+                    correct_guesses = correct_guesses + guess
+                else:
+                    wrong_guesses = wrong_guesses + guess
 
-                if len(self.wrong_guesses) >= 7:
-                    print("Você perdeu! A palavra era " + self.word.upper())
+                if len(wrong_guesses) >= 7:
+                    ui.draw(word, correct_guesses, wrong_guesses)
+                    print("Você perdeu! A palavra era " + word.upper())
                     break
 
             # Pergunta se o jogo reiniciará
