@@ -2,8 +2,6 @@
 jogo-da-forca-22_2-grupo-5-2022-2 created by GitHub Classroom
 # JOGO DA FORCA
 
-Um projeto de um jogo da forca básico 
-
 ## Introdução
 
 Projeto de um jogo para a aula de POOII da Univeridade Federal de Santa Catarina.
@@ -11,7 +9,8 @@ Projeto de um jogo para a aula de POOII da Univeridade Federal de Santa Catarina
 
 ###  Pré-requisitos
 
-* **Instalar** Python e Git
+* **Instalar** Python
+* No terminal dar "pip install -r requirements.txt"
 
 ## Projeto
 
