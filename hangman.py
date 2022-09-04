@@ -1,5 +1,5 @@
 from dictionary import Dictionary
-import ui
+import ui, unidecode
 
 
 class Hangman:
@@ -20,7 +20,7 @@ class Hangman:
 
                 # Verifica se a letra está correta
                 guess = ui.ask_for_char(correct_guesses + wrong_guesses)
-                if guess in word:
+                if guess in unidecode.unidecode(word):
                     correct_guesses = correct_guesses + guess
                 else:
                     wrong_guesses = wrong_guesses + guess
